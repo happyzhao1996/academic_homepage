@@ -13,11 +13,11 @@ en:
   interests:
     - "&lt;research-interest&gt;"
   metrics:
-    citations: "0"
-    h_index: "0"
-    i10_index: "0"
+    citations: "197041"
+    h_index: "129"
+    i10_index: "383"
     since: "since &lt;year&gt;"
-    updated: "&lt;date&gt;"
+    updated: "2026-06-05"
   links:
     - label: "Google Scholar"
       icon: "scholar"
@@ -81,11 +81,11 @@ zh:
   interests:
     - "&lt;research-interest&gt;"
   metrics:
-    citations: "0"
-    h_index: "0"
-    i10_index: "0"
+    citations: "197041"
+    h_index: "129"
+    i10_index: "383"
     since: "&lt;year&gt; 年以来"
-    updated: "&lt;date&gt;"
+    updated: "2026-06-05"
   links:
     - label: "Google Scholar"
       icon: "scholar"

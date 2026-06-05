@@ -8,11 +8,12 @@ if exist "%RUBY_BIN%\ruby.exe" set "PATH=%RUBY_BIN%;%PATH%"
 
 echo.
 echo Updating Google Scholar data...
+echo Using fast mode: publication list and citation history only.
 where py >nul 2>nul
 if %ERRORLEVEL%==0 (
-  py -3 scripts\update_scholar.py
+  py -3 scripts\update_scholar.py --skip-links --limit 20
 ) else (
-  python scripts\update_scholar.py
+  python scripts\update_scholar.py --skip-links --limit 20
 )
 
 if ERRORLEVEL 1 (

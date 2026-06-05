@@ -1,8 +1,86 @@
-source: "Google Scholar example profile"
+source: "Google Scholar"
 source_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ&hl=en"
-captured_on: "&lt;date&gt;"
-total: "0"
-max: 1
+captured_on: "2026-06-05"
+total: "197041"
+max: 11266
 items:
-  - year: "&lt;year&gt;"
-    citations: 0
+  - year: "1987"
+    citations: 797
+  - year: "1988"
+    citations: 905
+  - year: "1989"
+    citations: 979
+  - year: "1990"
+    citations: 1037
+  - year: "1991"
+    citations: 916
+  - year: "1992"
+    citations: 1176
+  - year: "1993"
+    citations: 1165
+  - year: "1994"
+    citations: 1308
+  - year: "1995"
+    citations: 1401
+  - year: "1996"
+    citations: 1503
+  - year: "1997"
+    citations: 1471
+  - year: "1998"
+    citations: 1555
+  - year: "1999"
+    citations: 1943
+  - year: "2000"
+    citations: 2116
+  - year: "2001"
+    citations: 2436
+  - year: "2002"
+    citations: 2573
+  - year: "2003"
+    citations: 2658
+  - year: "2004"
+    citations: 3081
+  - year: "2005"
+    citations: 4740
+  - year: "2006"
+    citations: 4234
+  - year: "2007"
+    citations: 4621
+  - year: "2008"
+    citations: 4630
+  - year: "2009"
+    citations: 4897
+  - year: "2010"
+    citations: 4792
+  - year: "2011"
+    citations: 5493
+  - year: "2012"
+    citations: 6111
+  - year: "2013"
+    citations: 6789
+  - year: "2014"
+    citations: 6531
+  - year: "2015"
+    citations: 7114
+  - year: "2016"
+    citations: 7998
+  - year: "2017"
+    citations: 7577
+  - year: "2018"
+    citations: 7946
+  - year: "2019"
+    citations: 7597
+  - year: "2020"
+    citations: 7686
+  - year: "2021"
+    citations: 8334
+  - year: "2022"
+    citations: 7955
+  - year: "2023"
+    citations: 8227
+  - year: "2024"
+    citations: 9293
+  - year: "2025"
+    citations: 11266
+  - year: "2026"
+    citations: 4858
