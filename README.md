@@ -1,44 +1,65 @@
 # Academic Homepage Template
 
-This is a lightweight bilingual Jekyll template for an academic personal homepage. It includes placeholder content for profile details, publications, education, experience, honors, service, conferences, research, patents, and notes.
+A lightweight bilingual Jekyll template for academic personal homepages. The template keeps personal content in YAML files, can refresh Google Scholar data locally, and ships with placeholder records so it is easy to adapt without exposing private information.
 
-## Local Preview
+## Preview
+
+![Homepage preview](screenshot/crop_1.png)
+
+![Publications and citation history preview](screenshot/crop_2.png)
+
+## Quick Start
+
+Install Ruby, Bundler, and the gems first:
 
 ```powershell
 bundle install
-bundle exec jekyll serve --livereload
 ```
 
-Then open <http://127.0.0.1:4000/>.
+On Windows, double-click `run_server.bat` to refresh Scholar data and start the local Jekyll preview. `run_server.ps1` does the same from PowerShell.
 
-On Windows, `run_server.ps1` and `run_server.bat` can start the local Jekyll preview after Ruby and Bundler are installed.
+The preview runs at:
+
+```text
+http://127.0.0.1:4000/
+```
+
+## Scholar Refresh
+
+The launch scripts run this before serving the site:
+
+```powershell
+python scripts/update_scholar.py --skip-links --limit 20
+```
+
+That updates:
+
+- `_data/publications.yml`
+- `_data/citation_history.yml`
+- Scholar metrics inside `_data/profile.yml`
+
+The default Scholar profile is Albert Einstein's public profile, used only as a safe example. To use your own profile, set `SCHOLAR_USER_ID` before launching the script, or run:
+
+```powershell
+python scripts/update_scholar.py --user-id <scholar_user_id> --limit 20 --skip-links
+```
+
+Google Scholar may block frequent automated requests. If that happens, the script exits without overwriting existing YAML files.
 
 ## Editing Content
 
-- Profile, links, education, experience, research, honors, service, conferences, and patents: `_data/profile.yml`
-- Navigation labels and anchors: `_data/navigation.yml`
-- Publication records: `_data/publications.yml`
-- Selected publication records: `_data/selected_publications.yml`
+Most personal content lives in `_data/profile.yml`. Update both the `en` and `zh` sections if you want the bilingual pages to stay aligned.
+
+- Profile name, title, affiliation, portrait, links, research interests, metrics, education, experience, honors, service, conferences, skills, and patents: `_data/profile.yml`
+- Navigation labels and section links: `_data/navigation.yml`
+- Full publication records: `_data/publications.yml`
+- Homepage selected publications: `_data/selected_publications.yml`
 - Citation chart data: `_data/citation_history.yml`
-- Notes and posts: `_posts/`
+- Essays and notes: `_posts/`
+- Page text: `index.md`, `zh/index.md`, and the other top-level Markdown pages
+- Styles: `assets/css/main.scss`
 
 The default language is English at `/`; Chinese pages live under `/zh/`.
-
-## Updating Scholar Data
-
-Jekyll reads static YAML files in `_data/`. The bundled script uses Albert Einstein's public Google Scholar profile as a safe example and limits publication fetching to 20 records by default:
-
-```powershell
-python scripts/update_scholar.py
-```
-
-To use your own Scholar profile:
-
-```powershell
-python scripts/update_scholar.py --user-id <scholar_user_id> --limit 20
-```
-
-You can also set `SCHOLAR_USER_ID` and run the script without `--user-id`. If Google blocks the request, the script exits without overwriting the existing YAML files.
 
 ## License
 

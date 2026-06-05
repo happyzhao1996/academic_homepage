@@ -7,7 +7,7 @@ en:
   group_url: "https://example.com"
   location: "&lt;city, country&gt;"
   verified: "Verified email domain: &lt;school-domain&gt;"
-  portrait: "/assets/images/profile-placeholder.svg"
+  portrait: "/assets/images/github-default-avatar.svg"
   tagline: "&lt;research-area-1&gt; | &lt;research-area-2&gt; | &lt;research-area-3&gt;"
   summary: "I am &lt;name&gt;, a researcher at &lt;school&gt;. Replace this paragraph with a concise overview of your research interests, methods, and current academic focus."
   interests:
@@ -75,7 +75,7 @@ zh:
   group_url: "https://example.com"
   location: "&lt;city, country&gt;"
   verified: "认证邮箱域名：&lt;school-domain&gt;"
-  portrait: "/assets/images/profile-placeholder.svg"
+  portrait: "/assets/images/github-default-avatar.svg"
   tagline: "&lt;research-area-1&gt; | &lt;research-area-2&gt; | &lt;research-area-3&gt;"
   summary: "我是 &lt;name&gt;，目前在 &lt;school&gt; 从事研究工作。请将本段替换为你的研究兴趣、方法和当前学术方向简介。"
   interests:
