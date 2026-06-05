@@ -1,0 +1,16 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign profile = site.data.profile[lang] %}
+{% assign ui = site.data.ui[lang] %}
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; {{ site.time | date: '%Y' }} {{ profile.name }}</span>
+    <span>{{ ui.footer_note }}</span>
+    <nav class="footer-links" aria-label="Academic links">
+      {% for link in profile.links limit: 4 %}
+        <a href="{{ link.url }}" rel="me noopener" target="_blank">{{ link.label }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</footer>
+

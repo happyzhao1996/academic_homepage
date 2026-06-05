@@ -1,0 +1,56 @@
+title: "Academic Homepage Template"
+description: "A lightweight bilingual Jekyll template for an academic homepage."
+url: ""
+baseurl: ""
+lang: "en"
+timezone: "Etc/UTC"
+icon: "/assets/images/icon.svg"
+
+markdown: kramdown
+highlighter: rouge
+permalink: /essays/:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      lang: en
+      section: essays
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      lang: en
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - run_server.bat
+  - run_server.ps1
+  - update_and_preview.bat
+  - scripts
+  - ".jekyll-*.log"
+  - ".jekyll-*.err"
+  - ".jekyll-server.log"
+  - ".jekyll-server.err"
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache

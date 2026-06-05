@@ -1,0 +1,8 @@
+source: "Google Scholar example profile"
+source_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ&hl=en"
+captured_on: "&lt;date&gt;"
+total: "0"
+max: 1
+items:
+  - year: "&lt;year&gt;"
+    citations: 0

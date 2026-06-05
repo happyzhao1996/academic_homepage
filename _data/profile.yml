@@ -1,0 +1,136 @@
+en:
+  name: "&lt;name&gt;"
+  initials: "AH"
+  role: "&lt;academic-title&gt;"
+  affiliation: "&lt;school&gt;"
+  group: "&lt;research-group&gt;"
+  group_url: "https://example.com"
+  location: "&lt;city, country&gt;"
+  verified: "Verified email domain: &lt;school-domain&gt;"
+  portrait: "/assets/images/profile-placeholder.svg"
+  tagline: "&lt;research-area-1&gt; | &lt;research-area-2&gt; | &lt;research-area-3&gt;"
+  summary: "I am &lt;name&gt;, a researcher at &lt;school&gt;. Replace this paragraph with a concise overview of your research interests, methods, and current academic focus."
+  interests:
+    - "&lt;research-interest&gt;"
+  metrics:
+    citations: "0"
+    h_index: "0"
+    i10_index: "0"
+    since: "since &lt;year&gt;"
+    updated: "&lt;date&gt;"
+  links:
+    - label: "Google Scholar"
+      icon: "scholar"
+      url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ&hl=en"
+  education:
+    - period: "&lt;start-year&gt;-&lt;end-year&gt;"
+      title: "&lt;degree&gt; in &lt;field&gt;"
+      organization: "&lt;school&gt;"
+      location: "&lt;country&gt;"
+      details:
+        - "Advisor: &lt;advisor-name&gt;."
+  experience:
+    - period: "&lt;start-year&gt;-Present"
+      title: "&lt;position-title&gt;"
+      organization: "&lt;institution&gt;"
+      location: "&lt;city, country&gt;"
+      details:
+        - "Research on &lt;research-topic&gt;."
+  honors:
+    - period: "&lt;year&gt;"
+      title: "&lt;award-name&gt;"
+      organization: "&lt;awarding-organization&gt;"
+  service:
+    - period: "&lt;year&gt;"
+      title: "&lt;service-role&gt;"
+      organization: "&lt;conference-or-journal&gt;"
+      details:
+        - "Contributed to &lt;service-activity&gt;."
+  conferences:
+    - period: "&lt;year&gt;"
+      title: "&lt;talk-or-poster-title&gt;"
+      location: "&lt;conference-name&gt;"
+  research:
+    - title: "&lt;research-direction&gt;"
+      description: "Describe one research direction, key question, method, or project theme."
+  skills:
+    - category: "&lt;skill-category&gt;"
+      items: "&lt;skill-1&gt;; &lt;skill-2&gt;; &lt;skill-3&gt;"
+  patents:
+    - period: "&lt;year&gt;"
+      title: "&lt;patent-or-disclosure-title&gt;"
+      status: "&lt;status&gt;"
+  empty:
+    education: "Education details will be updated soon."
+    honors: "Selected awards will be updated soon."
+    service: "Academic service entries will be updated soon."
+    conferences: "Conference activities will be updated soon."
+    patents: "Patent records will be updated soon."
+zh:
+  name: "&lt;name&gt;"
+  initials: "AH"
+  role: "&lt;academic-title&gt;"
+  affiliation: "&lt;school&gt;"
+  group: "&lt;research-group&gt;"
+  group_url: "https://example.com"
+  location: "&lt;city, country&gt;"
+  verified: "认证邮箱域名：&lt;school-domain&gt;"
+  portrait: "/assets/images/profile-placeholder.svg"
+  tagline: "&lt;research-area-1&gt; | &lt;research-area-2&gt; | &lt;research-area-3&gt;"
+  summary: "我是 &lt;name&gt;，目前在 &lt;school&gt; 从事研究工作。请将本段替换为你的研究兴趣、方法和当前学术方向简介。"
+  interests:
+    - "&lt;research-interest&gt;"
+  metrics:
+    citations: "0"
+    h_index: "0"
+    i10_index: "0"
+    since: "&lt;year&gt; 年以来"
+    updated: "&lt;date&gt;"
+  links:
+    - label: "Google Scholar"
+      icon: "scholar"
+      url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ&hl=en"
+  education:
+    - period: "&lt;start-year&gt;-&lt;end-year&gt;"
+      title: "&lt;degree&gt;，&lt;field&gt;"
+      organization: "&lt;school&gt;"
+      location: "&lt;country&gt;"
+      details:
+        - "导师：&lt;advisor-name&gt;。"
+  experience:
+    - period: "&lt;start-year&gt;-至今"
+      title: "&lt;position-title&gt;"
+      organization: "&lt;institution&gt;"
+      location: "&lt;city, country&gt;"
+      details:
+        - "研究方向：&lt;research-topic&gt;。"
+  honors:
+    - period: "&lt;year&gt;"
+      title: "&lt;award-name&gt;"
+      organization: "&lt;awarding-organization&gt;"
+  service:
+    - period: "&lt;year&gt;"
+      title: "&lt;service-role&gt;"
+      organization: "&lt;conference-or-journal&gt;"
+      details:
+        - "参与 &lt;service-activity&gt;。"
+  conferences:
+    - period: "&lt;year&gt;"
+      title: "&lt;talk-or-poster-title&gt;"
+      location: "&lt;conference-name&gt;"
+  research:
+    - title: "&lt;research-direction&gt;"
+      description: "描述一个研究方向、关键问题、研究方法或项目主题。"
+  skills:
+    - category: "&lt;skill-category&gt;"
+      items: "&lt;skill-1&gt;；&lt;skill-2&gt;；&lt;skill-3&gt;"
+  patents:
+    - period: "&lt;year&gt;"
+      title: "&lt;patent-or-disclosure-title&gt;"
+      status: "&lt;status&gt;"
+  empty:
+    education: "教育经历将后续补充。"
+    honors: "获奖情况将后续补充。"
+    service: "学术服务将后续补充。"
+    conferences: "学术会议将后续补充。"
+    patents: "专利记录将后续补充。"

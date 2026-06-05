@@ -1,0 +1,14 @@
+_site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/
+_temp/
+__pycache__/
+*.pyc
+.jekyll-*.log
+.jekyll-*.err
+.jekyll-server.log
+.jekyll-server.err
+.DS_Store
+Thumbs.db

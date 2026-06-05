@@ -1,0 +1,97 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign profile = site.data.profile[lang] %}
+{% assign ui = site.data.ui[lang] %}
+
+<div class="profile-card" itemscope itemtype="https://schema.org/Person">
+  <img class="profile-card__photo" src="{{ profile.portrait | relative_url }}" alt="{{ profile.name }}" itemprop="image">
+  <div class="profile-card__identity">
+    <h2 itemprop="name">{{ profile.name }}</h2>
+    <p class="profile-card__role">{{ profile.role }}</p>
+    <p class="profile-card__affiliation" itemprop="affiliation">{{ profile.affiliation }}</p>
+    <p class="profile-card__meta">
+      {% if profile.group_url %}
+        <a href="{{ profile.group_url }}" target="_blank" rel="noopener">{{ profile.group }}</a>
+      {% else %}
+        {{ profile.group }}
+      {% endif %}
+    </p>
+    <p class="profile-card__meta">{{ profile.location }}</p>
+  </div>
+
+  <div class="profile-card__interests" aria-label="Research interests">
+    {% for interest in profile.interests %}
+      <span>{{ interest }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="sidebar-metrics" aria-label="Scholar metrics">
+    <div>
+      <strong>{{ profile.metrics.citations }}</strong>
+      <span>{{ ui.metrics.citations }}</span>
+    </div>
+    <div>
+      <strong>{{ profile.metrics.h_index }}</strong>
+      <span>{{ ui.metrics.h_index }}</span>
+    </div>
+    <div>
+      <strong>{{ profile.metrics.i10_index }}</strong>
+      <span>{{ ui.metrics.i10_index }}</span>
+    </div>
+  </div>
+
+  <nav class="profile-links" aria-label="{{ ui.links }}">
+    {% for link in profile.links %}
+      {% assign link_icon = link.icon | default: 'external' %}
+      <a class="profile-link profile-link--{{ link_icon }}" href="{{ link.url }}" target="_blank" rel="me noopener">
+        <span class="profile-link__icon" aria-hidden="true">
+          {% case link_icon %}
+          {% when 'scholar' %}
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M3.5 9.2 12 5l8.5 4.2L12 13.4 3.5 9.2Z"></path>
+              <path d="M7.2 11.6v4c1.1 1.4 2.8 2.2 4.8 2.2s3.7-.8 4.8-2.2v-4"></path>
+              <path d="M20.1 9.7v5.4"></path>
+            </svg>
+          {% when 'researchgate' %}
+            <svg viewBox="0 0 24 24" focusable="false">
+              <text x="12" y="12">RG</text>
+            </svg>
+          {% when 'orcid' %}
+            <svg viewBox="0 0 24 24" focusable="false">
+              <circle cx="12" cy="12" r="8.8"></circle>
+              <text x="12" y="12">iD</text>
+            </svg>
+          {% when 'linkedin' %}
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M6.2 10v7.6"></path>
+              <path d="M6.2 6.3v.1"></path>
+              <path d="M10.4 17.6v-7.2"></path>
+              <path d="M10.4 13.6c0-2.1 1.3-3.4 3.2-3.4 1.8 0 3 1.2 3 3.4v4"></path>
+            </svg>
+          {% when 'github' %}
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M9 19.5c-4.4 1.2-4.4-2.1-6.1-2.6"></path>
+              <path d="M15 21v-3.2c0-.9-.3-1.6-.9-2.1 3-.4 6.1-1.5 6.1-6.7 0-1.5-.5-2.8-1.4-3.8.2-.5.6-1.9-.1-3.8 0 0-1.2-.4-3.9 1.5a13.2 13.2 0 0 0-7.6 0C4.5 1 3.3 1.4 3.3 1.4c-.7 1.9-.3 3.3-.1 3.8A5.4 5.4 0 0 0 1.8 9c0 5.2 3.1 6.3 6.1 6.7-.4.4-.8 1-.9 1.9V21"></path>
+            </svg>
+          {% when 'institution' %}
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M3.7 20h16.6"></path>
+              <path d="M5.1 9.2 12 5.2l6.9 4"></path>
+              <path d="M6.2 9.2h11.6"></path>
+              <path d="M7.5 9.2V20"></path>
+              <path d="M12 9.2V20"></path>
+              <path d="M16.5 9.2V20"></path>
+            </svg>
+          {% else %}
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path d="M8 7h9v9"></path>
+              <path d="M17 7 7 17"></path>
+            </svg>
+          {% endcase %}
+        </span>
+        <span class="profile-link__label">{{ link.label }}</span>
+      </a>
+    {% endfor %}
+  </nav>
+
+  <p class="profile-card__updated">{{ ui.updated }}: {{ profile.metrics.updated }}</p>
+</div>

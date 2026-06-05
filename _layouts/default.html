@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% include site-header.html %}
+    <div class="site-frame">
+      <aside class="profile-sidebar{% unless page.section == 'home' %} profile-sidebar--hide-narrow{% endunless %}" aria-label="Profile">
+        {% include profile-sidebar.html %}
+      </aside>
+      <main id="content" class="site-main" tabindex="-1">
+        {{ content }}
+      </main>
+    </div>
+    {% include site-footer.html %}
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
+</html>

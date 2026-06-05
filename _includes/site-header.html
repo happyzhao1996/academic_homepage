@@ -1,0 +1,27 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign nav_items = site.data.navigation[lang] %}
+{% assign ui = site.data.ui[lang] %}
+{% assign profile = site.data.profile[lang] %}
+{% if page.alternate_url %}
+  {% assign alternate_url = page.alternate_url %}
+{% elsif lang == 'zh' %}
+  {% assign alternate_url = '/' %}
+{% else %}
+  {% assign alternate_url = '/zh/' %}
+{% endif %}
+
+<a class="skip-link" href="#content">{{ ui.skip_to_content }}</a>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="{% if lang == 'zh' %}{{ '/zh/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" aria-label="{{ site.title }}">
+      <span class="brand__mark">{{ profile.initials | default: 'AH' }}</span>
+      <span class="brand__text">{{ profile.name | default: site.title }}</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      {% for item in nav_items %}
+        <a class="primary-nav__item{% if page.section == item.section %} is-active{% endif %}" href="{{ item.href | relative_url }}">{{ item.label }}</a>
+      {% endfor %}
+      <a class="primary-nav__item language-switch" href="{{ alternate_url | relative_url }}">{{ ui.lang_switch }}</a>
+    </nav>
+  </div>
+</header>

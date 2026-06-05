@@ -1,0 +1,21 @@
+<article class="post">
+  <header class="post__header">
+    {% assign lang = page.lang | default: site.lang | default: 'en' %}
+    {% if lang == 'zh' %}
+      <a class="back-link" href="{{ '/zh/essays/' | relative_url }}">生活随笔</a>
+    {% else %}
+      <a class="back-link" href="{{ '/essays/' | relative_url }}">Essays</a>
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    <p>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      {% if page.categories %}
+        <span class="dot-separator">/</span>
+        {{ page.categories | join: ", " }}
+      {% endif %}
+    </p>
+  </header>
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

@@ -1,0 +1,105 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign ui = site.data.ui[lang] %}
+{% assign chart = site.data.citation_history %}
+{% assign count = chart.items | size %}
+{% assign denominator = count | minus: 1 %}
+{% if denominator < 1 %}
+  {% assign denominator = 1 %}
+{% endif %}
+{% assign x_step = 560 | divided_by: denominator %}
+{% assign chart_total = chart.total | plus: 0 %}
+{% assign left_axis_max = chart.max | plus: 29 | divided_by: 30 | times: 30 %}
+{% assign right_axis_max = chart_total | plus: 29 | divided_by: 30 | times: 30 %}
+{% if left_axis_max < 1 %}
+  {% assign left_axis_max = 30 %}
+{% endif %}
+{% if right_axis_max < 1 %}
+  {% assign right_axis_max = 30 %}
+{% endif %}
+{% assign tick_one = left_axis_max | divided_by: 3 %}
+{% assign tick_two = left_axis_max | times: 2 | divided_by: 3 %}
+{% assign total_tick_one = right_axis_max | divided_by: 3 %}
+{% assign total_tick_two = right_axis_max | times: 2 | divided_by: 3 %}
+{% assign bar_label = "Citations per year" %}
+{% assign line_label = "Total citations" %}
+
+{% capture total_line_points %}
+  {% assign cumulative = 0 %}
+  {% for item in chart.items %}
+    {% assign cumulative = cumulative | plus: item.citations %}
+    {% assign x = forloop.index0 | times: x_step | plus: 112 %}
+    {% assign total_height = cumulative | times: 304 | divided_by: right_axis_max %}
+    {% assign total_y = 370 | minus: total_height %}
+    {{ x }},{{ total_y }}
+  {% endfor %}
+{% endcapture %}
+
+<section class="citation-panel citation-panel--sketch" aria-label="Google Scholar yearly and cumulative citations">
+  <svg class="citation-chart citation-chart--sketch" viewBox="0 0 800 470" role="img" aria-label="Google Scholar yearly and cumulative citations">
+    <defs>
+      <filter id="xkcdify-citations" filterUnits="userSpaceOnUse" x="-5" y="-5" width="790" height="480">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05" result="noise"></feTurbulence>
+        <feDisplacementMap scale="5" xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="noise"></feDisplacementMap>
+      </filter>
+      <filter id="xkcdify-bars" filterUnits="userSpaceOnUse" x="-5" y="-5" width="790" height="480">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" result="noise"></feTurbulence>
+        <feDisplacementMap scale="2.4" xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="noise"></feDisplacementMap>
+      </filter>
+    </defs>
+
+    <rect x="0" y="0" width="800" height="470" class="sketch-bg"></rect>
+    <text x="403" y="44" class="sketch-title">{% if lang == 'zh' %}Citation History{% else %}Citation History{% endif %}</text>
+
+    <g class="sketch-legend">
+      <rect x="112" y="70" width="224" height="62" rx="5" ry="5" filter="url(#xkcdify-citations)"></rect>
+      <rect x="128" y="87" width="9" height="9" rx="2" ry="2" class="sketch-legend-bar" filter="url(#xkcdify-citations)"></rect>
+      <text x="150" y="98">{{ bar_label }}</text>
+      <line x1="128" y1="116" x2="139" y2="116" class="sketch-legend-line" filter="url(#xkcdify-citations)"></line>
+      <text x="150" y="121">{{ line_label }}</text>
+    </g>
+
+    <g class="sketch-y-labels">
+      <text x="68" y="367">0</text>
+      <text x="68" y="263">{{ tick_one }}</text>
+      <text x="68" y="160">{{ tick_two }}</text>
+      <text x="68" y="58">{{ left_axis_max }}</text>
+    </g>
+    <g class="sketch-y-labels sketch-y-labels--right">
+      <text x="738" y="367">0</text>
+      <text x="738" y="263">{{ total_tick_one }}</text>
+      <text x="738" y="160">{{ total_tick_two }}</text>
+      <text x="738" y="58">{{ right_axis_max }}</text>
+    </g>
+
+    <line x1="82" y1="56" x2="82" y2="370" class="sketch-axis" filter="url(#xkcdify-citations)"></line>
+    <line x1="724" y1="56" x2="724" y2="370" class="sketch-axis sketch-axis--total" filter="url(#xkcdify-citations)"></line>
+
+    <g class="sketch-bars">
+      {% for item in chart.items %}
+        {% assign x = forloop.index0 | times: x_step | plus: 112 %}
+        {% assign bar_height = item.citations | times: 304 | divided_by: left_axis_max %}
+        {% assign y = 370 | minus: bar_height %}
+        <rect x="{{ x | minus: 17 }}" y="{{ y }}" width="34" height="{{ bar_height }}" rx="3" ry="3" class="sketch-bar" filter="url(#xkcdify-bars)"></rect>
+        <text x="{{ x }}" y="405" class="sketch-year">{{ item.year }}</text>
+        <text x="{{ x }}" y="{{ y | minus: 12 }}" class="sketch-value">{{ item.citations }}</text>
+      {% endfor %}
+    </g>
+
+    <g class="sketch-total-series">
+      <polyline points="{{ total_line_points | strip }}" class="sketch-total-line" filter="url(#xkcdify-citations)"></polyline>
+      {% assign cumulative = 0 %}
+      {% for item in chart.items %}
+        {% assign cumulative = cumulative | plus: item.citations %}
+        {% assign x = forloop.index0 | times: x_step | plus: 112 %}
+        {% assign total_height = cumulative | times: 304 | divided_by: right_axis_max %}
+        {% assign total_y = 370 | minus: total_height %}
+        <circle cx="{{ x }}" cy="{{ total_y }}" r="4.2" class="sketch-total-dot" filter="url(#xkcdify-citations)"></circle>
+      {% endfor %}
+    </g>
+
+    <text x="403" y="442" class="sketch-x-label">{% if lang == 'zh' %}Year{% else %}Year{% endif %}</text>
+    <text x="28" y="222" class="sketch-y-title" transform="rotate(-90 28 222)">Citations per year</text>
+    <text x="784" y="222" class="sketch-y-title sketch-y-title--right" transform="rotate(90 784 222)">Total citations</text>
+    <line x1="82" y1="370" x2="724" y2="370" class="sketch-axis" filter="url(#xkcdify-citations)"></line>
+  </svg>
+</section>

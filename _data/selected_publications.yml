@@ -1,0 +1,7 @@
+items:
+  - title: "&lt;selected-paper-title&gt;"
+    authors: "&lt;name&gt;, &lt;coauthor&gt;"
+    venue: "&lt;journal-or-conference&gt; &lt;volume&gt;, &lt;pages&gt;, &lt;year&gt;"
+    year: "&lt;year&gt;"
+    citations: "0"
+    link: "https://example.com"

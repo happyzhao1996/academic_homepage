@@ -1,0 +1,10 @@
+source: "Google Scholar example profile"
+source_url: "https://scholar.google.com/citations?user=qc6CJjYAAAAJ&hl=en"
+captured_on: "&lt;date&gt;"
+items:
+  - title: "&lt;paper-title&gt;"
+    authors: "&lt;name&gt;, &lt;coauthor&gt;"
+    venue: "&lt;journal-or-conference&gt; &lt;volume&gt;, &lt;pages&gt;, &lt;year&gt;"
+    year: "&lt;year&gt;"
+    citations: "0"
+    link: "https://example.com"

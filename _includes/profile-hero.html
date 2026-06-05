@@ -1,0 +1,40 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign profile = site.data.profile[lang] %}
+{% assign ui = site.data.ui[lang] %}
+
+<section class="hero">
+  <div class="hero__copy">
+    <p class="eyebrow">{{ profile.role }}</p>
+    <h1>{{ profile.name }}</h1>
+    <p class="hero__affiliation">{{ profile.affiliation }}</p>
+    <p class="hero__summary">{{ profile.summary }}</p>
+    <div class="pill-row" aria-label="Research interests">
+      {% for interest in profile.interests %}
+        <span>{{ interest }}</span>
+      {% endfor %}
+    </div>
+    <div class="hero__links" aria-label="{{ ui.links }}">
+      {% for link in profile.links %}
+        <a href="{{ link.url }}" target="_blank" rel="me noopener">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="hero__media">
+    <img src="{{ profile.portrait | relative_url }}" alt="{{ profile.name }}">
+    <div class="metric-strip" aria-label="Scholar metrics">
+      <div>
+        <strong>{{ profile.metrics.citations }}</strong>
+        <span>{{ ui.metrics.citations }}</span>
+      </div>
+      <div>
+        <strong>{{ profile.metrics.h_index }}</strong>
+        <span>{{ ui.metrics.h_index }}</span>
+      </div>
+      <div>
+        <strong>{{ profile.metrics.i10_index }}</strong>
+        <span>{{ ui.metrics.i10_index }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+

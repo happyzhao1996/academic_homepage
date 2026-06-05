@@ -1,0 +1,34 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign ui = site.data.ui[lang] %}
+
+{% if include.sortable %}
+  <div class="sort-controls" data-publication-sort-controls>
+    <button type="button" class="is-active" data-sort-publications="citations" aria-pressed="true">{{ ui.sort_by_citations }}</button>
+    <button type="button" data-sort-publications="date" aria-pressed="false">{{ ui.sort_by_date }}</button>
+  </div>
+{% endif %}
+
+<ol class="publication-list"{% if include.sortable %} data-publication-list{% endif %}>
+  {% for paper in include.items %}
+    <li class="publication" data-year="{{ paper.year | default: 0 }}" data-citations="{{ paper.citations | default: 0 }}" data-index="{{ forloop.index0 }}">
+      <div class="publication__year">{{ paper.year }}</div>
+      <div class="publication__body">
+        <h3>
+          {% if paper.link and paper.link != '' %}
+            <a href="{{ paper.link }}" target="_blank" rel="noopener">{{ paper.title }}</a>
+          {% else %}
+            {{ paper.title }}
+          {% endif %}
+        </h3>
+        <p class="publication__authors">{{ paper.authors }}</p>
+        <p class="publication__venue">{{ paper.venue }}</p>
+      </div>
+      {% if paper.citations and paper.citations != '' %}
+        <div class="publication__metric">
+          <strong>{{ paper.citations }}</strong>
+          <span>{{ ui.citations }}</span>
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ol>
